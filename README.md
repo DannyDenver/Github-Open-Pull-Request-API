@@ -3,6 +3,7 @@
 ## To run the application:
 
   1. Run `npm install`
+  2. Add .env file with `TOKEN={your github api token}`, axios requests to Github might fail because Github has api request limits. Adding an authorization token increases the api request limit.
   2. Run `npm start`
   3. The app will be running on http://localhost:5000 ie http://localhost:5000/api/v1/repos/jashkenas/underscore/pulls
 

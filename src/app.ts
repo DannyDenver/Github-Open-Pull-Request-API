@@ -44,11 +44,11 @@ app.get("/api/v1/repos/:owner/:repo/pulls", (req: Request, res: Response) => {
                     ));
                 }))
                 .catch((error: Error) => {
-                    res.status(500).send(`Error: ${error.message}. Calls to github may need an authorization token.`);
+                    res.status(500).send(`Error: ${error.message}. Calls to Github may need an authorization token.`);
                 });;
         })
         .catch((error: Error) => {
-            res.status(500).send(`Error: ${error.message}. Calls to github may need an authorization token.`);
+            res.status(500).send(`Error: ${error.message}. Calls to Github may need an authorization token.`);
         });
 });
 

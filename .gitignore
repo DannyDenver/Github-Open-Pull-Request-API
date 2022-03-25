@@ -1,5 +1,7 @@
 /coverage
 /dist
+/github-api-serverless/.serverless
+/github-api-serverless/node_modules
 /node_modules
 package-lock.json
 .env

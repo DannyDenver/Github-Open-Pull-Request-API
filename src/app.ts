@@ -10,6 +10,18 @@ const headers = process.env.TOKEN && {
     Authorization: `token ${process.env.TOKEN}`
 }
 
+axios.interceptors.request.use(function (config) {
+    return config;
+  }, function (error) {
+    return Promise.reject(error);
+  });
+
+axios.interceptors.response.use(function (response) {
+    return response;
+  }, function (error) {
+    return Promise.reject(error);
+  });
+
 app.get("/api/v1/repos/:owner/:repo/pulls", (req: Request, res: Response) => {
     axios.get(`https://api.github.com/repos/${req.params.owner}/${req.params.repo}/pulls?state=opened`, {  headers })
         .then((pullRequests: AxiosResponse) => pullRequests.data)
@@ -32,11 +44,11 @@ app.get("/api/v1/repos/:owner/:repo/pulls", (req: Request, res: Response) => {
                     ));
                 }))
                 .catch((error: Error) => {
-                    res.status(500).send('Error: ' + error.message);
+                    res.status(500).send(`Error: ${error.message}. Calls to github may need an authorization token.`);
                 });;
         })
         .catch((error: Error) => {
-            res.status(500).send('Error: ' + error.message);
+            res.status(500).send(`Error: ${error.message}. Calls to github may need an authorization token.`);
         });
 });
 

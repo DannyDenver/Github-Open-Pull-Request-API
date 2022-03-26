@@ -1,6 +1,7 @@
 import { Service } from 'typedi';
 import ApiService from './ApiService';
-import { RepoPullRequest } from '../interfaces/repo-pull-request.interface';
+import { RepoPullRequest } from '../interfaces/RepoPullRequest';
+import { PullRequest } from '../interfaces/PullRequest';
 require('dotenv').config()
 
 @Service()
@@ -11,7 +12,7 @@ class GitHubService {
         return this.apiService.get(`https://api.github.com/repos/${owner}/${repo}/pulls?state=opened`, process.env.TOKEN && process.env.TOKEN);
     }
 
-    getPullRequest(owner: string, repo:string, pullNumber: number): Promise<any> {
+    getPullRequest(owner: string, repo:string, pullNumber: number): Promise<PullRequest> {
         return this.apiService.get(`https://api.github.com/repos/${owner}/${repo}/pulls/${pullNumber}`, process.env.TOKEN && process.env.TOKEN);
     }}
 

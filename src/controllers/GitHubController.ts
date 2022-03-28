@@ -1,5 +1,5 @@
 import { Service } from "typedi";
-import { Request, Response } from 'express';
+import { Request, Response } from "express";
 import GitHubService from "../services/GitHubService";
 import { PullRequest } from "../interfaces/PullRequest";
 import OpenPullRequest from "../models/OpenPullRequest";
@@ -27,6 +27,6 @@ class GitHubController {
 
         res.status(200).json(result);
     }
-};
+}
 
 export default GitHubController;

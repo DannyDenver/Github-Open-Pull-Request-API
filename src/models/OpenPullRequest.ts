@@ -3,13 +3,13 @@ export default class OpenPullRequest {
     number: number;
     title: string;
     author: string;
-    commit_count: Number;
+    commit_count: number;
 
     constructor(id, number, title, author, commit_count) {
         this.id = id,
         this.number = number,
         this.title = title,
         this.author = author,
-        this.commit_count = commit_count
+        this.commit_count = commit_count;
     }
 }

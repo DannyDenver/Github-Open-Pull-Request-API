@@ -14,6 +14,7 @@ class GitHubService {
 
     getPullRequest(owner: string, repo:string, pullNumber: number): Promise<PullRequest> {
         return this.apiService.get(`https://api.github.com/repos/${owner}/${repo}/pulls/${pullNumber}`, process.env.TOKEN && process.env.TOKEN);
-    }}
+    }
+}
 
 export default GitHubService;
